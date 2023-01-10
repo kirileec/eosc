@@ -53,6 +53,7 @@ func join(c *cli.Context) error {
 		validAddr = true
 		as = append(as, a)
 	}
+	log.Error(as)
 
 	if !validAddr {
 		return errors.New("start node error: no valid cluster address")
@@ -71,7 +72,7 @@ func join(c *cli.Context) error {
 		ClusterAddress: as,
 	})
 	if err != nil {
-		//log.Error(err)
+		log.Error(err)
 		return err
 	}
 	log.Infof("join successful! node id is: %d", response.Info.NodeID)

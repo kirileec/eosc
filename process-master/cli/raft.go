@@ -3,13 +3,14 @@ package cli
 import (
 	"context"
 	"fmt"
-
 	"github.com/eolinker/eosc/etcd"
 	"github.com/eolinker/eosc/service"
+	"github.com/linxlib/logs"
 )
 
 // Join 加入集群操作
 func (m *MasterCliServer) Join(ctx context.Context, request *service.JoinRequest) (*service.JoinResponse, error) {
+	logs.Error(request.ClusterAddress)
 	info := &service.NodeSecret{}
 	var err error
 	for _, address := range request.ClusterAddress {
