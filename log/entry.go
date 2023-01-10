@@ -28,7 +28,7 @@ const (
 func init() {
 
 	// start at the bottom of the stack before the package-name cache is primed
-	minimumCallerDepth = 1
+	minimumCallerDepth = 4
 }
 
 // Defines the key when adding errors using WithError.
