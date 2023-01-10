@@ -19,7 +19,7 @@ func init() {
 	}
 
 	transport = NewComplex()
-	logger = NewLogger(transport, false, "")
+	logger = NewLogger(transport, true, "")
 
 	RegisterExitHandler(func() {
 		Close()
@@ -29,6 +29,7 @@ func GetLogger() *Logger {
 	return logger
 }
 func SetLevel(level Level) {
+
 	transport.setLevel(level)
 }
 
